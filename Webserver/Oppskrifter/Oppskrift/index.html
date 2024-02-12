@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../CSS/css.css">
+    <link rel="stylesheet" href="../../CSS/oppskrifter.css">
+    <link rel="stylesheet" href="../../CSS/oppskrift.css">
+    <title>Oppskrift</title>
+</head>
+<body>
+<header class="main-nav">
+    <a href="../../index.html"><img id="logo-image" src="../../Images/logo.png" alt="PLÆN-logo"/></a>
+    <nav>
+        <button class= "nav" id="Handleliste-link">HANDLELISTE</button>
+        <button class= "nav" id="Chat-link">CHAT</button>
+        <button class= "nav" id="Kalender-link">KALENDER</button>
+        <button class= "nav" id="Oppskrift-link">OPPSKRIFTER</button>
+        <button class="log-btn" id="log-in-btn">INNLOGGING</button>
+        <button class="log-btn" id="log-out-btn">LOGG UT</button>
+
+    </nav>
+</header>
+
+<main>
+    <div id="edit-recipe-popup" class="new-recipe-popup">
+        <div class="new-recipe-content">
+
+            <h1 style="display: inline;">
+                Endre oppskrift
+            </h1>
+            <a id="close-recipe-popup"><img src="../../Images/cross.svg" alt="close popup" class="close-svg"></a>
+            <form id="new-recipe-form">
+                <label for="edit-name">Navn på oppskrift<br></label>
+                <input type="text" id="edit-name" placeholder="Skriv navn..." required>
+                <label for="edit-description"><br>Beskrivelse<br></label>
+                <input type="text" id="edit-description" placeholder="Skriv en kort beskrivelse..." required>
+                <label for="edit-time"><br>Tid i minutter<br></label>
+                <input type="number" id="edit-time" placeholder="Skriv tid..." required>
+                <label for="edit-difficulty"><br>Vanskelighetsgrad:<br></label>
+                <input type="range" min="1" max="5" id="edit-difficulty" required>
+                <p id="difficulty-value-label" style="display: inline;">3</p>
+                <label for="category-checkboxes"><br>Kategorier:<br></label>
+                <div id="category-checkboxes">
+                    <!-- Category checkboxes get appended here -->
+                </div>
+
+                <div id="manual-recipe">
+                    <div id="edit-recipe-ingredients">
+                        <label for="add-ingredient"><br>Ingredienser<br></label>
+                        <input type="text" id="add-ingredient" placeholder="Navn på ingrediens...">
+                        <input type="text" id="recipe-ingredient-qty" placeholder="Mengde...">
+                        <button id="add-ingredient-btn">Legg til</button>
+                        <ul id="edit-ingredient-list">
+                            <!-- Ingredients get appended here -->
+                        </ul>
+                    </div>
+                    <div id="edit-recipe-instructions">
+                        <label for="recipe-instructions"><br>Instruksjoner<br></label>
+                        <input type="text" id="recipe-instructions" placeholder="Instruksjoner">
+                        <button id="add-instruction-btn">Legg til</button>
+                        <ol id="edit-instructions-list">
+                            <!-- Instructions get appended here -->
+                        </ol>
+                    </div>
+                </div>
+                <div id="url-recipe">
+                    <label for="edit-url"><br> Full URL til oppskrift<br></label>
+                    <input type="url" id="edit-url" placeholder="Eks: https://plaen.no">
+                </div>
+                <br>
+                <button id="delete-recipe">Slett oppskrift</button>
+                <button id="submit-edit-recipe">Lagre oppskrift</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="single-recipe-wrapper">
+        <div class="recipe-header">
+            <h1 id="recipe-name"></h1>
+            <a id="edit-recipe-btn"><img src="../../Images/edit-icon.png" alt="Edit recipe"></a>
+        </div>
+        <div class="single-recipe-content" id="recipe-content">
+        </div>
+        <div id="recipe-image">
+        </div>
+    </div>
+</main>
+
+
+</body>
+<script src="../../JS/js.js"></script>
+<script src="../../JS/API.js"></script>
+<script defer src="../../JS/oppskrifter.js"></script>
+<script src="../../JS/oppskrift.js"></script>
+</html>

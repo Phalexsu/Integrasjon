@@ -1,0 +1,34 @@
+version: '3'
+services:
+  webserver:
+    image: webserver:deploy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - type: bind
+        source: /web_images
+        target: /usr/local/apache2/htdocs/UsrImages
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
+  db:
+    image: db:deploy
+    ports:
+      - "8080:8080"
+    volumes:
+      - type: bind
+        source: /web_images
+        target: /UsrImages
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s

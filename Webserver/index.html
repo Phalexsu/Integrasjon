@@ -1,0 +1,126 @@
+<!--
+    HOVEDSIDE TIL PLÆN
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/css.css">
+    <link rel="stylesheet" href="CSS/hjemmeside.css">
+    <title>Hjemmeside</title>
+</head>
+<body>
+    <header class="main-nav">
+        <a href="index.html"><img id="logo-image" src="Images/logo.png" alt="PLÆN-logo"/></a>
+    <nav>
+            <button class= "nav" id="Handleliste-link">HANDLELISTE</button>
+            <button class= "nav" id="Chat-link">CHAT</button>
+            <button class= "nav" id="Kalender-link">KALENDER</button>
+            <button class= "nav" id="Oppskrift-link">OPPSKRIFTER</button>
+            <button class="log-btn" id="log-in-btn">INNLOGGING</button>
+            <button class="log-btn" id="log-out-btn">LOGG UT</button>
+    </nav>
+</header>
+    <!--NOT LOGGED IN-STARTPAGE-->
+    <div id="not-logged-in">
+        <img src="Images/logostor.png" alt="PLÆN-logo">
+        <button class="log-btn" id="log-in-btn2">INNLOGGING</button>
+        <h2>ELLER</h2>
+        <a class="register-btn">REGISTRER DEG HER</a>
+    </div>
+
+    <!--Pop-up login-->
+    <div id="log-in-popup" class="popup-wrapper">
+        <form id="log-in-form" class="popup-content">
+            <a id="close-login-popup" class="close-popup"><img src="Images/cross.svg" alt="close popup" class="close-svg"></a>
+            <div class="username"><h3>Brukernavn</h3></div>
+            <input type="text" placeholder="Skriv inn brukernavn" name="brukernavn" id="username" class="username" required>
+            <h3>Passord</h3>
+            <input type="password" placeholder="Skriv inn passord" name="psw" id="password" required>
+            <br>
+            <a id="wrong-password" class="error">Feil brukernavn eller passord</a>
+            <br>
+            <button type="button" class="btn" id="log-in-submit">Logg inn</button>
+            <br><br>
+            <h3>har du ikke bruker?</h3>
+            <button type="button" class="btn" id="register-switch-btn">Registrer deg</button>
+
+        </form>
+    </div>
+
+    <div id="new-group-popup" class="popup">
+        <div class="popup-content">
+            <a id="close-group-popup" class="close-popup"><img src="Images/cross.svg" alt="close popup" class="close-svg"></a>
+            <h2>Lag ny gruppe</h2>
+            <form class="create-group-form">
+                <label for="group-name">Gruppenavn:</label>
+                <input type="text" id="group-name" name="group-name" required placeholder="Skriv inn navn på gruppen...">
+            
+                <label for="member-input">Legg til medlemmer:</label>
+                <div class="member-input" id="member-input">
+                    <button type="button" id="add-member-button">Legg til medlem</button>
+                </div>
+                <span> <em>Klikk på "Legg til medlem" for å legge inn gruppemedlemmer.</em> </span>
+                <ul id="member-list" class="member-list">
+                </ul>
+                <label for="group-img">Gruppens ikon (frivillig)</label>
+                <input type="file" id="group-img" name="group-img" accept="image/*">
+                <div id="group-img-preview">
+                    <img src="" alt="gruppebilde" style="display: none">
+                </div>
+                <button type="submit" class="create-button" >Opprett</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="search-member-modal" class="modal">
+        <div class="modal-content">
+            <a id="close-modal" class="close-popup close-modal"><img src="Images/cross.svg" alt="close popup" class="close-svg"></a>
+            <h2>Legge til medlemmer</h2>
+            <input type="text" id="search-input" placeholder="Skriv inn medlemmets navn...">
+            <ul class="member-suggestions"></ul>
+        </div>
+    </div>
+
+
+    <!--Pop-up register-->
+    <div id="register-popup" class="popup-wrapper">
+        <form id="register-user-form" class="popup-content">
+            <a id="close-register-popup" class="close-popup"><img src="Images/cross.svg" alt="close popup" class="close-svg"></a>
+            <div class="name"><h3>Navn</h3></div>
+            <input type="text" placeholder="Skriv inn navn" name="name" id="name-reg" class="name" required>
+            <h3>Brukernavn</h3>
+            <input type="text" placeholder="Skriv inn brukernavn" name="brukernavn" id="username-reg" required>
+            <a id="username-taken" class="error">Brukernavnet er opptatt</a>
+            <h3>Passord</h3>
+            <input type="password" placeholder="Skriv inn passord" name="psw" id="password-reg" required>
+            <h3>Gjenta passord</h3>
+            <input type="password" placeholder="Skriv inn passord" name="psw" id="password-reg-conf" required>
+            <br><br>
+            <span id="password-validation-message"></span> 
+            <span id="password-match-message"></span> 
+            <br><br>
+            <button type="submit" class="btn" id="register-user-submit">Registrer bruker</button>
+            <br><br>
+            <h3>har du bruker allerede?</h3>
+            <button type="button" class="btn" id="login-switch-btn">Logg inn</button>
+        </form>
+    </div>
+
+
+<main id="main-display">
+    <div id="top-field">
+    <h1 id="header-text">MINE GRUPPER</h1>
+    <!--All svg vectors from svgrepo.com-->
+        <a id="new-group-btn"><img src="Images/add-square.svg" alt="Create new group"/></a>
+    </div>
+    <div class="groups-container"></div>
+</main>
+</body>
+<script src="JS/js.js"></script>
+<script src="JS/API.js"></script>
+<script src="JS/hjemmeside.js"></script>
+</html>
